@@ -21,3 +21,7 @@ I'll be using plain old HTML, CSS and JS. This will be a sweet opportunity to pr
 - Nice looking web page with CSS
 - Selectable colours for sketching (random RGB sketching?)
 - Responsive, mobile first design? (revisit when learning responsive design?)
+
+#### Rough design (ignore colours)
+
+![Draft web page design](borderline-illegal-design.png)
