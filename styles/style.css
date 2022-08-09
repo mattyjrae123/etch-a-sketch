@@ -45,5 +45,5 @@ h1 {
   width: auto;    /* fill available space in grid */
   height: auto;
 
-  border: 1px solid black;
+  border: 1px solid grey;
 }
