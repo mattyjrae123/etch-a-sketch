@@ -13,6 +13,7 @@ addGridTileEventListeners();
   the gridContainer element and gridItems array.
 */
 function generateGrid() {
+  let generatedGridTemplate = "";
   for (let n = 0; n < gridSize*gridSize; n+=1) {
     let gridItem = document.createElement("div");
   
@@ -21,6 +22,13 @@ function generateGrid() {
   
     gridItems.push(gridItem);
   }
+
+  for (let n = 0; n < gridSize; n+=1) {
+    generatedGridTemplate += " auto";
+  }
+
+  gridContainer.style.gridTemplateColumns = generatedGridTemplate;
+
 }
 
 /*

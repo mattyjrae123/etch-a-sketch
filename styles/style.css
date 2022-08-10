@@ -44,7 +44,6 @@ h1 {
 
 #grid-container {
   display: grid;
-  grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto; /* 16x16 grid */
 
   width: 800px;
   height: 800px;
