@@ -1,18 +1,34 @@
-const gridItems = document.querySelectorAll(".grid-item");
+let gridSize = 16;
+const gridContainer = document.querySelector("#grid-container");
+const gridItems = [];
 
-// Add eventListeners to all grid items
-for (let i = 0; i < gridItems.length; i += 1) {
-  gridItems[i].addEventListener("mouseover", (e) => {
+generateGrid();
+addGridTileEventListeners();
 
-    // current background colour of grid item
-    const newAlphaValue = getNewAlphaValue(gridItems[i]);
-
-    gridItems[i].style.backgroundColor = `rgba(0, 0, 0, ${newAlphaValue})`;
-  });
+function generateGrid() {
+  for (let n = 0; n < gridSize*gridSize; n+=1) {
+    let gridItem = document.createElement("div");
+  
+    gridItem.classList.add("grid-item");
+    gridContainer.appendChild(gridItem);
+  
+    gridItems.push(gridItem);
+  }
 }
 
+function addGridTileEventListeners() {
+  for (let i = 0; i < gridItems.length; i += 1) {
+    gridItems[i].addEventListener("mouseover", (e) => {
+  
+      // current background colour of grid item
+      const newAlphaValue = getNewAlphaValue(gridItems[i]);
+  
+      gridItems[i].style.backgroundColor = `rgba(0, 0, 0, ${newAlphaValue})`;
+    });
+  }
+  
+}
 /*
-
   getNewAlphaValue()
 
   Takes a grid item as parameter, gets it's current background-color
