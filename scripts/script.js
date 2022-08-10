@@ -23,6 +23,7 @@ function generateGrid() {
     gridItems.push(gridItem);
   }
 
+  // Generates 'grid-column-template' CSS rule
   for (let n = 0; n < gridSize; n+=1) {
     generatedGridTemplate += " auto";
   }
