@@ -5,6 +5,13 @@ const gridItems = [];
 generateGrid();
 addGridTileEventListeners();
 
+/*
+  generateGrid()
+
+  Uses the gridSize global variable to generate gridSize*gridSize
+  new html elements, adds grid-item class to them and adds them to
+  the gridContainer element and gridItems array.
+*/
 function generateGrid() {
   for (let n = 0; n < gridSize*gridSize; n+=1) {
     let gridItem = document.createElement("div");
@@ -16,6 +23,13 @@ function generateGrid() {
   }
 }
 
+/*
+  addGridTileEventListeners()
+
+  Adds an event listener to each item in the gridItems array which
+  updates the background colour of each item when the mouse is hovered
+  over it.
+*/
 function addGridTileEventListeners() {
   for (let i = 0; i < gridItems.length; i += 1) {
     gridItems[i].addEventListener("mouseover", (e) => {
