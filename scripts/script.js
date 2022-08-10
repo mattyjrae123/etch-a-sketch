@@ -11,6 +11,15 @@ for (let i = 0; i < gridItems.length; i += 1) {
   });
 }
 
+/*
+
+  getNewAlphaValue()
+
+  Takes a grid item as parameter, gets it's current background-color
+  style as a string, and extracts the alpha value from the string. If
+  the current alpha value is between 0 and 0.9 inclusive, increments
+  alpha value and returns it. Otherwise, returns 1.
+*/
 function getNewAlphaValue(gridItem) {
   // returns 'rgba()' string, or rgb() string if alpha value is already 1
   const rgbaString = getComputedStyle(gridItem)
