@@ -33,6 +33,17 @@ function generateGrid() {
 }
 
 /*
+  resetGridItems()
+
+  Resets colour on grid items to default (white). 
+*/
+function resetGridItems() {
+  gridItems.forEach(item => {
+    item.style.backgroundColor = "rgb(0, 0, 0, 0)";
+  });
+}
+
+/*
   addGridTileEventListeners()
 
   Adds an event listener to each item in the gridItems array which
