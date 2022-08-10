@@ -1,4 +1,4 @@
-/* Google Font 'Major Mono Display' */
+ /* Google Font 'Major Mono Display' */
 @import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap');
 
 * {
@@ -32,6 +32,17 @@ h1 {
   margin-bottom: 30px;
 }
 
+#grid-menu-container {
+  display: flex;
+
+}
+
+#menu {
+  height: 600px;
+  width: 200px;
+  background-color: red;
+}
+
 #grid-container {
   display: grid;
   grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto; /* 16x16 grid */
@@ -39,6 +50,11 @@ h1 {
   width: 800px;
   height: 800px;
   border: 1px solid black;
+}
+
+/* invisible element to center grid */
+#grid-menu-spacer {
+  width: 200px;
 }
 
 .grid-item {
