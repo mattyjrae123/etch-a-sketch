@@ -5,9 +5,15 @@ const gridItems = [];
 generateGrid();
 addGridTileEventListeners();
 
-document.querySelector("#reset-btn")
-        .addEventListener('click', resetGridItems);
+document.querySelector("#reset-btn").addEventListener('click', resetGridItems);
         
+/*
+  generateGridItem()
+
+  Creates and returns a new grid item and its appropriate methods
+  and variables.
+*/
+
 /*
   generateGrid()
 
