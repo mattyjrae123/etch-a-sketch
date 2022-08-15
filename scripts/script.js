@@ -16,7 +16,6 @@ document.querySelector("#reset-btn")
   the gridContainer element and gridItems array.
 */
 function generateGrid() {
-  let generatedGridTemplate = "";
   for (let n = 0; n < gridSize*gridSize; n+=1) {
     let gridItem = document.createElement("div");
   
@@ -26,6 +25,8 @@ function generateGrid() {
     gridItems.push(gridItem);
   }
 
+  let generatedGridTemplate = "";
+  
   // Generates 'grid-column-template' CSS rule
   for (let n = 0; n < gridSize; n+=1) {
     generatedGridTemplate += " auto";
