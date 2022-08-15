@@ -72,20 +72,6 @@ function addGridTileEventListeners() {
     });
   }
 }
-/*
-function addGridTileEventListeners() {
-  for (let i = 0; i < gridItems.length; i += 1) {
-    gridItems[i].addEventListener("mouseover", (e) => {
-  
-      // current background colour of grid item
-      const newAlphaValue = getNewAlphaValue(gridItems[i]);
-  
-      gridItems[i].style.backgroundColor = `rgba(0, 0, 0, ${newAlphaValue})`;
-    });
-  }
-  
-}
-*/
 
 /*
   getNewAlphaValue()
