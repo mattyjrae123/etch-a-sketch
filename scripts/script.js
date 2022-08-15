@@ -14,7 +14,32 @@ document.querySelector("#reset-btn")
   Uses the gridSize global variable to generate gridSize*gridSize
   new html elements, adds grid-item class to them and adds them to
   the gridContainer element and gridItems array.
+*/
+function generateGrid() {
+  for (let n = 0; n < gridSize*gridSize; n+=1) {
+    const gridItem = {
+      element: document.createElement('div'),
+      currentWhitePercentage: 100
+    };
 
+    gridItem.element.classList.add('grid-item');
+
+    gridItem.element.style.backgroundColor = 'rgb(100%, 100%, 100%)';
+    gridContainer.appendChild(gridItem.element);
+
+    gridItems.push(gridItem);
+  }
+
+  let generatedGridTemplate = "";
+  
+  // Generates 'grid-column-template' CSS rule
+  for (let n = 0; n < gridSize; n+=1) {
+    generatedGridTemplate += " auto";
+  }
+
+  gridContainer.style.gridTemplateColumns = generatedGridTemplate;
+}
+/*
 function generateGrid() {
   for (let n = 0; n < gridSize*gridSize; n+=1) {
     let gridItem = document.createElement("div");
