@@ -46,10 +46,11 @@ h1 {
 }
 
 #reset-btn {
-  padding: 10px 20px;
   margin-top: 50px;
+  width: 125px;
+  height: 40px;
   border: none;
-  font-size: 22px;
+  font-size: 20px;
 }
 
 #reset-btn:hover {
