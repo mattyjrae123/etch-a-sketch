@@ -5,8 +5,8 @@ const gridItems = [];
 generateGrid();
 addGridTileEventListeners();
 
-/*document.querySelector("#reset-btn")
-        .addEventListener('click', resetGridItems);*/
+document.querySelector("#reset-btn")
+        .addEventListener('click', resetGridItems);
         
 /*
   generateGrid()
@@ -44,13 +44,15 @@ function generateGrid() {
   resetGridItems()
 
   Resets colour on grid items to default (white). 
+*/
 
 function resetGridItems() {
   gridItems.forEach(item => {
-    item.style.backgroundColor = "rgba(0, 0, 0, 0)";
+    item.currentWhitePercentage = 100;
+    item.element.style.backgroundColor = "rgb(100%, 100%, 100%)";
   });
 }
-*/
+
 
 /*
   addGridTileEventListeners()
