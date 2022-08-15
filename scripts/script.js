@@ -13,6 +13,21 @@ document.querySelector("#reset-btn").addEventListener('click', resetGridItems);
   Creates and returns a new grid item and its appropriate methods
   and variables.
 */
+function generateGridItem() {
+  const gridItem = {
+    element: document.createElement('div'),
+    currentWhitePercentage: 100,
+    darken: function() {
+
+    },
+    resetBgColour: function() {
+
+    },
+    updateBgColour: function() {
+
+    }
+  };
+}
 
 /*
   generateGrid()
