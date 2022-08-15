@@ -50,7 +50,14 @@ h1 {
   margin-top: 50px;
   border: none;
   font-size: 22px;
+}
 
+#reset-btn:hover {
+  border: 2px solid grey;
+}
+
+#reset-btn:active {
+  border: 2px solid black;
 }
 
 #grid-container {
