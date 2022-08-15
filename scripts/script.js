@@ -48,16 +48,9 @@ function generateGridItem() {
 */
 function generateGrid() {
   for (let n = 0; n < gridSize*gridSize; n+=1) {
-    const gridItem = {
-      element: document.createElement('div'),
-      currentWhitePercentage: 100
-    };
+    const gridItem = generateGridItem();
 
-    gridItem.element.classList.add('grid-item');
-
-    gridItem.element.style.backgroundColor = 'rgb(100%, 100%, 100%)';
     gridContainer.appendChild(gridItem.element);
-
     gridItems.push(gridItem);
   }
 
