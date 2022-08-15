@@ -14,7 +14,7 @@ document.querySelector("#reset-btn")
   Uses the gridSize global variable to generate gridSize*gridSize
   new html elements, adds grid-item class to them and adds them to
   the gridContainer element and gridItems array.
-*/
+
 function generateGrid() {
   for (let n = 0; n < gridSize*gridSize; n+=1) {
     let gridItem = document.createElement("div");
@@ -35,17 +35,19 @@ function generateGrid() {
   gridContainer.style.gridTemplateColumns = generatedGridTemplate;
 
 }
+*/
 
 /*
   resetGridItems()
 
   Resets colour on grid items to default (white). 
-*/
+
 function resetGridItems() {
   gridItems.forEach(item => {
     item.style.backgroundColor = "rgba(0, 0, 0, 0)";
   });
 }
+*/
 
 /*
   addGridTileEventListeners()
@@ -53,7 +55,7 @@ function resetGridItems() {
   Adds an event listener to each item in the gridItems array which
   updates the background colour of each item when the mouse is hovered
   over it.
-*/
+
 function addGridTileEventListeners() {
   for (let i = 0; i < gridItems.length; i += 1) {
     gridItems[i].addEventListener("mouseover", (e) => {
@@ -66,6 +68,8 @@ function addGridTileEventListeners() {
   }
   
 }
+*/
+
 /*
   getNewAlphaValue()
 
@@ -73,7 +77,7 @@ function addGridTileEventListeners() {
   style as a string, and extracts the alpha value from the string. If
   the current alpha value is between 0 and 0.9 inclusive, increments
   alpha value and returns it. Otherwise, returns 1.
-*/
+
 function getNewAlphaValue(gridItem) {
   // returns 'rgba()' string, or rgb() string if alpha value is already 1
   const rgbaString = getComputedStyle(gridItem)
@@ -90,3 +94,4 @@ function getNewAlphaValue(gridItem) {
 
   return alphaValue + 0.1;
 }
+*/
