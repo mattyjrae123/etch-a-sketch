@@ -43,7 +43,7 @@ function generateGrid() {
 */
 function resetGridItems() {
   gridItems.forEach(item => {
-    item.style.backgroundColor = "rgb(0, 0, 0, 0)";
+    item.style.backgroundColor = "rgba(0, 0, 0, 0)";
   });
 }
 
