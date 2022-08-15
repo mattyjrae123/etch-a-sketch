@@ -17,7 +17,7 @@ function generateGridItem() {
   const gridItem = {
     element: document.createElement('div'),
     currentWhitePercentage: 100,
-    
+
     darken: function() {
       if (this.currentWhitePercentage <= 0) {
         return;
@@ -33,6 +33,10 @@ function generateGridItem() {
       this.element.style.backgroundColor = `rgb(${this.currentWhitePercentage}%, ${this.currentWhitePercentage}%, ${this.currentWhitePercentage}%)`;
     }
   };
+
+  gridItem.element.classList.add('grid-item');
+  gridItem.updateBgColour();
+  return gridItem;
 }
 
 /*
