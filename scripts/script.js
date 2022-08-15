@@ -17,14 +17,20 @@ function generateGridItem() {
   const gridItem = {
     element: document.createElement('div'),
     currentWhitePercentage: 100,
+    
     darken: function() {
-
+      if (this.currentWhitePercentage <= 0) {
+        return;
+      }
+      this.currentWhitePercentage -= 10;
     },
+
     resetBgColour: function() {
-
+      this.currentWhitePercentage = 100;
     },
-    updateBgColour: function() {
 
+    updateBgColour: function() {
+      this.element.style.backgroundColor = `rgb(${this.currentWhitePercentage}%, ${this.currentWhitePercentage}%, ${this.currentWhitePercentage}%)`;
     }
   };
 }
