@@ -5,8 +5,8 @@ const gridItems = [];
 generateGrid();
 addGridTileEventListeners();
 
-document.querySelector("#reset-btn")
-        .addEventListener('click', resetGridItems);
+/*document.querySelector("#reset-btn")
+        .addEventListener('click', resetGridItems);*/
         
 /*
   generateGrid()
@@ -68,7 +68,7 @@ function addGridTileEventListeners() {
       }
 
       gridItem.currentWhitePercentage -= 10;
-      gridItem.updateBackgroundColour();
+      gridItem.element.style.backgroundColor = `rgb(${gridItem.currentWhitePercentage}%, ${gridItem.currentWhitePercentage}%, ${gridItem.currentWhitePercentage}%)`;
     });
   }
 }
