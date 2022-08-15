@@ -58,7 +58,21 @@ function resetGridItems() {
   Adds an event listener to each item in the gridItems array which
   updates the background colour of each item when the mouse is hovered
   over it.
+*/
+function addGridTileEventListeners() {
+  for (let i = 0; i < gridItems.length; i+=1) {
+    const gridItem = gridItems[i];
+    gridItem.element.addEventListener('mouseover', (e) => {
+      if (gridItem.currentWhitePercentage <= 0) {
+        return;
+      }
 
+      gridItem.currentWhitePercentage -= 10;
+      gridItem.updateBackgroundColour();
+    });
+  }
+}
+/*
 function addGridTileEventListeners() {
   for (let i = 0; i < gridItems.length; i += 1) {
     gridItems[i].addEventListener("mouseover", (e) => {
