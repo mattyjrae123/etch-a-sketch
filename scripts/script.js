@@ -88,6 +88,7 @@ function createGrid(gridSize=DEFAULT_GRID_SIZE) {
     gridSize = DEFAULT_GRID_SIZE;
   }
 
+  // create all grid items (gridSize^2)
   for (let n = 0; n < gridSize*gridSize; n+=1) {
     const gridItem = createGridItem();
 
@@ -95,9 +96,9 @@ function createGrid(gridSize=DEFAULT_GRID_SIZE) {
     gridItems.push(gridItem);
   }
 
+  // generate 'grid-column-template' CSS rule
   let generatedGridTemplate = "";
   
-  // Generates 'grid-column-template' CSS rule
   for (let n = 0; n < gridSize; n+=1) {
     generatedGridTemplate += " auto";
   }
