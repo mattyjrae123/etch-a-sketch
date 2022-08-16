@@ -11,15 +11,28 @@ let gridItems = [];
   DOM OBJECTS
 ***************/
 const gridContainer = document.querySelector("#grid-container");
+const blackButton = document.querySelector("#black-btn");
+const rgbButton = document.querySelector("#rgb-btn");
 const resetButton = document.querySelector("#reset-btn");
 const gridSlider = document.querySelector("#slider");
 
-// default value for output element under slider
+// default values
 document.querySelector("#output").textContent = `${DEFAULT_GRID_SIZE} x ${DEFAULT_GRID_SIZE}`;
+blackButton.classList.add("active");
 
 /*****************
   EVENT LISTENERS
 ******************/
+blackButton.addEventListener('click', () => {
+  rgbButton.classList.remove("active");
+  blackButton.classList.add("active");
+});
+
+rgbButton.addEventListener('click', () => {
+  blackButton.classList.remove("active");
+  rgbButton.classList.add("active");
+});
+
 // reset all grid item bg colours to white
 resetButton.addEventListener('click', () => {
   gridItems.forEach(item => {
@@ -145,4 +158,3 @@ function addGridTileEventListeners() {
  ************/
 createGrid();
 addGridTileEventListeners();
-document.querySelector('input[value="black"]').classList.add('active');
