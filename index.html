@@ -14,8 +14,11 @@
       <div id="grid-menu-container">
         <div id="menu">
           <input id="reset-btn" type="button" value="reset">
-          <label for="grid-size-slider">1 - 64</label>
-          <input id="grid-size-slider" name="grid-size" type="range" min="1" max="64" value="16">
+          <form id="slider-form" oninput="output.value=slider.value">
+            <label for="slider">grid size</label>
+            <input id="slider" name="grid-size" type="range" min="1" max="64" value="16">
+            <output name="output" for="grid-size-slider" form="slider-form">16</output>
+          </form>
         </div>
         <div id="grid-container"></div>
         <div id="grid-menu-spacer"></div>

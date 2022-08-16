@@ -61,12 +61,20 @@ h1 {
   border: 2px solid black;
 }
 
-label {
-  margin-top: 50px;
+#slider-form {
+  margin-top: 25px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 2px;
 }
 
-#grid-size-slider {
-  margin-top: 5px;
+output {
+  font-size: 14px;
 }
 
 #grid-container {
