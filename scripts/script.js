@@ -2,7 +2,7 @@ let gridSize = 16;
 const gridContainer = document.querySelector("#grid-container");
 let gridItems = [];
 
-createGrid();
+createGrid(gridSize);
 addGridTileEventListeners();
 
 document.querySelector("#reset-btn").addEventListener('click', resetGridItems);
@@ -48,7 +48,7 @@ function createGridItem() {
   new html elements, adds grid-item class to them and adds them to
   the gridContainer element and gridItems array.
 */
-function createGrid() {
+function createGrid(gridSize) {
   for (let n = 0; n < gridSize*gridSize; n+=1) {
     const gridItem = createGridItem();
 
