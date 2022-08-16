@@ -20,6 +20,7 @@ document.querySelector("#output").textContent = DEFAULT_GRID_SIZE;
 /*****************
   EVENT LISTENERS
 ******************/
+// reset all grid item bg colours to white
 resetButton.addEventListener('click', () => {
   gridItems.forEach(item => {
     item.resetBgColour();
