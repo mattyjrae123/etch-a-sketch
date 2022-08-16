@@ -1,4 +1,7 @@
+const MIN_GRID_SIZE = 1;
+const MAX_GRID_SIZE = 64;
 const DEFAULT_GRID_SIZE = 16;
+
 const gridContainer = document.querySelector("#grid-container");
 let gridItems = [];
 
@@ -49,7 +52,7 @@ function createGridItem() {
   the gridContainer element and gridItems array.
 */
 function createGrid(gridSize=DEFAULT_GRID_SIZE) {
-  if (gridSize <= 0 || gridSize > 64) {
+  if (gridSize < MIN_GRID_SIZE || gridSize > MAX_GRID_SIZE) {
     gridSize = DEFAULT_GRID_SIZE;
   }
 
