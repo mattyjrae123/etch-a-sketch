@@ -63,6 +63,12 @@ gridSlider.addEventListener('input', () => {
 });
 
 /************
+  MAIN CODE
+ ************/
+  createGrid();
+  addGridTileEventListeners();
+
+/************
   FUNCTIONS
 *************/
 
@@ -175,9 +181,3 @@ function addGridTileEventListeners() {
     });
   }
 }
-
-/************
-  MAIN CODE
- ************/
-createGrid();
-addGridTileEventListeners();
