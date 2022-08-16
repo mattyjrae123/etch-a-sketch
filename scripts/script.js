@@ -2,17 +2,29 @@ const MIN_GRID_SIZE = 1;
 const MAX_GRID_SIZE = 64;
 const DEFAULT_GRID_SIZE = 16;
 
-const gridContainer = document.querySelector("#grid-container");
 let gridItems = [];
+
+const gridContainer = document.querySelector("#grid-container");
+const resetButton = document.querySelector("#reset-btn");
+const gridSlider = document.querySelector("#slider");
+
+resetButton.addEventListener('click', () => {
+  gridItems.forEach(item => {
+    item.resetBgColour();
+    item.updateBgColour();
+  });
+});
+
+gridSlider.addEventListener('mouseup', () => {
+  const newGridSize = gridSlider.value;
+  clearGrid();
+  createGrid(newGridSize);
+  addGridTileEventListeners();
+});
 
 createGrid();
 addGridTileEventListeners();
 
-document.querySelector("#reset-btn").addEventListener('click', resetGridItems);
-        
-document.querySelector("#slider").addEventListener('mouseup', (e) => {
-  console.log(document.querySelector("#slider").value);
-});
 
 /*
   createGridItem()
@@ -90,20 +102,6 @@ function clearGrid() {
 
   gridItems = [];
 }
-
-/*
-  resetGridItems()
-
-  Resets colour on grid items to default (white). 
-*/
-
-function resetGridItems() {
-  gridItems.forEach(item => {
-    item.resetBgColour();
-    item.updateBgColour();
-  });
-}
-
 
 /*
   addGridTileEventListeners()
