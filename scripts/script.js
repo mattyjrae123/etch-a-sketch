@@ -10,6 +10,10 @@ addGridTileEventListeners();
 
 document.querySelector("#reset-btn").addEventListener('click', resetGridItems);
         
+document.querySelector("#slider").addEventListener('mouseup', (e) => {
+  console.log(document.querySelector("#slider").value);
+});
+
 /*
   createGridItem()
 
