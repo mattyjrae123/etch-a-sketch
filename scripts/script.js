@@ -20,21 +20,18 @@ const gridSlider = document.querySelector("#slider");
 /*****************
   EVENT LISTENERS
 ******************/
-// add .active style to black button
 blackButton.addEventListener('click', () => {
   rgbButton.classList.remove("active");
   blackButton.classList.add("active");
   rgbMode = false;
 });
 
-// add .active style to rgb button
 rgbButton.addEventListener('click', () => {
   blackButton.classList.remove("active");
   rgbButton.classList.add("active");
   rgbMode = true;
 });
 
-// reset all grid item bg colours to white
 resetButton.addEventListener('click', () => {
   gridItems.forEach(item => {
     item.resetBgColour();
