@@ -22,9 +22,12 @@ gridSlider.addEventListener('mouseup', () => {
   addGridTileEventListeners();
 });
 
+gridSlider.addEventListener('input', () => {
+  document.querySelector("output").textContent = gridSlider.value;
+});
+
 createGrid();
 addGridTileEventListeners();
-
 
 /*
   createGridItem()
