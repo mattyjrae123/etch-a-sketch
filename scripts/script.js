@@ -36,6 +36,7 @@ function generateGridItem() {
 
   gridItem.element.classList.add('grid-item');
   gridItem.updateBgColour();
+
   return gridItem;
 }
 
@@ -72,8 +73,8 @@ function generateGrid() {
 
 function resetGridItems() {
   gridItems.forEach(item => {
-    item.currentWhitePercentage = 100;
-    item.element.style.backgroundColor = "rgb(100%, 100%, 100%)";
+    item.resetBgColour();
+    item.updateBgColour();
   });
 }
 
