@@ -74,13 +74,15 @@ output {
   font-size: 14px;
 }
 
-input[type="button"]:hover {
-  border: 2px solid grey;
+input[type="button"] .active {
+  background-color: rgb(50, 50, 50);
+  color: white;
 }
 
-#reset-btn:active {
-  border: 2px solid black;
+input[type="button"]:hover {
+  border: 2px solid rgb(50, 50, 50);
 }
+
 
 #grid-container {
   display: grid;
