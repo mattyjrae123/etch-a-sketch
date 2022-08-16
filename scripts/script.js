@@ -27,6 +27,7 @@ resetButton.addEventListener('click', () => {
   });
 });
 
+// when slider is released, delete grid and create new grid using sliders value
 gridSlider.addEventListener('mouseup', () => {
   const newGridSize = gridSlider.value;
   clearGrid();
@@ -34,6 +35,7 @@ gridSlider.addEventListener('mouseup', () => {
   addGridTileEventListeners();
 });
 
+// update slider label as it's moved
 gridSlider.addEventListener('input', () => {
   document.querySelector("output").textContent = gridSlider.value;
 });
