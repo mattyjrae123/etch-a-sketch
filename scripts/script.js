@@ -20,6 +20,9 @@ const gridSlider = document.querySelector("#slider");
 // default values
 document.querySelector("#output").textContent = `${DEFAULT_GRID_SIZE} x ${DEFAULT_GRID_SIZE}`;
 blackButton.classList.add("active");
+gridSlider.setAttribute("value", DEFAULT_GRID_SIZE);
+gridSlider.setAttribute("min", MIN_GRID_SIZE);
+gridSlider.setAttribute("max", MAX_GRID_SIZE);
 
 /*****************
   EVENT LISTENERS
