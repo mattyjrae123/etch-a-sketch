@@ -137,8 +137,8 @@ function addGridTileEventListeners() {
   }
 }
 
-/*************
-  START CODE
- *************/
+/************
+  MAIN CODE
+ ************/
 createGrid();
 addGridTileEventListeners();
