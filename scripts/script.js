@@ -8,7 +8,7 @@ addGridTileEventListeners();
 document.querySelector("#reset-btn").addEventListener('click', resetGridItems);
         
 /*
-  generateGridItem()
+  createGridItem()
 
   Creates and returns a new grid item and its appropriate methods
   and variables.
@@ -42,7 +42,7 @@ function createGridItem() {
 }
 
 /*
-  generateGrid()
+  createGrid()
 
   Uses the gridSize global variable to generate gridSize*gridSize
   new html elements, adds grid-item class to them and adds them to
