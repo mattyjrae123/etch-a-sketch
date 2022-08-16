@@ -49,7 +49,7 @@ h1 {
   align-items: center;
 }
 
-.colour-btn, #reset-btn {
+input[type="button"] {
   margin-top: 25px;
   width: 125px;
   height: 40px;
@@ -74,7 +74,7 @@ output {
   font-size: 14px;
 }
 
-#reset-btn:hover {
+input[type="button"]:hover {
   border: 2px solid grey;
 }
 
