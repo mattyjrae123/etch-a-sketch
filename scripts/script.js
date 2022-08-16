@@ -145,3 +145,4 @@ function addGridTileEventListeners() {
  ************/
 createGrid();
 addGridTileEventListeners();
+document.querySelector('input[value="black"]').classList.add('active');

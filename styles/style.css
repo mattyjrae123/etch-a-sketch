@@ -74,7 +74,7 @@ output {
   font-size: 14px;
 }
 
-input[type="button"] .active {
+input[class*="active"] {
   background-color: rgb(50, 50, 50);
   color: white;
 }
