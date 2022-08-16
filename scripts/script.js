@@ -1,6 +1,6 @@
 let gridSize = 16;
 const gridContainer = document.querySelector("#grid-container");
-const gridItems = [];
+let gridItems = [];
 
 createGrid();
 addGridTileEventListeners();
@@ -73,7 +73,11 @@ function createGrid() {
   array
 */
 function clearGrid() {
-  
+  for (const item of gridItems) {
+    gridContainer.removeChild(item.element);
+  }
+
+  gridItems = [];
 }
 
 /*
