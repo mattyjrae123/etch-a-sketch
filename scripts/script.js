@@ -16,6 +16,7 @@ document.querySelector("#reset-btn").addEventListener('click', resetGridItems);
 function generateGridItem() {
   const gridItem = {
     element: document.createElement('div'),
+    /* 100 = white, 0 = black. Values in between are shades of grey */
     currentWhitePercentage: 100,
 
     darken: function() {
