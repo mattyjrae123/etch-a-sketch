@@ -99,6 +99,8 @@ function createGridItem() {
       const blue = Math.floor(Math.random() * 256);
 
       this.element.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+
+      this.resetBgColour();
     }
   };
 
