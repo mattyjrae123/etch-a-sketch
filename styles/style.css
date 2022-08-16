@@ -59,7 +59,7 @@ input[type="button"] {
 }
 
 #slider-form {
-  margin-top: 50px;
+  margin-top: 25px;
 
   display: flex;
   flex-direction: column;
