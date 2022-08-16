@@ -8,6 +8,10 @@
   font-family: 'Major Mono Display', monospace;
 }
 
+body {
+  background-color: rgb(235, 235, 235);
+}
+
 #main-container {
   display: flex;
   flex-direction: column;
@@ -19,7 +23,6 @@
   height: 50px;
   margin-top: 20px;
   font-size: 22px;
-  background-color: grey;
 
   display: flex;
   align-items: center;
@@ -67,6 +70,7 @@ output {
   height: 40px;
   border: none;
   font-size: 20px;
+  background-color: rgb(235, 235, 235);
 }
 
 #reset-btn:hover {
