@@ -82,22 +82,22 @@ function createGridItem() {
     /* 100 = white, 0 = black. Values in between are shades of grey */
     currentWhitePercentage: 100,
 
-    darken: function() {
+    darken() {
       if (this.currentWhitePercentage <= 0) {
         return;
       }
       this.currentWhitePercentage -= 10;
     },
 
-    resetBgColour: function() {
+    resetBgColour() {
       this.currentWhitePercentage = 100;
     },
 
-    updateBgColour: function() {
+    updateBgColour() {
       this.element.style.backgroundColor = `rgb(${this.currentWhitePercentage}%, ${this.currentWhitePercentage}%, ${this.currentWhitePercentage}%)`;
     },
 
-    updateBgColourRGB: function() {
+    updateBgColourRGB() {
       const red = Math.floor(Math.random() * 256);
       const green = Math.floor(Math.random() * 256);
       const blue = Math.floor(Math.random() * 256);
