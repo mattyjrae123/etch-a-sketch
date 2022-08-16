@@ -67,6 +67,16 @@ function createGrid() {
 }
 
 /*
+  clearGrid()
+
+  Removes all gridItem elements from the grid and clears gridItems
+  array
+*/
+function clearGrid() {
+  
+}
+
+/*
   resetGridItems()
 
   Resets colour on grid items to default (white). 
