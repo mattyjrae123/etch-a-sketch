@@ -6,6 +6,7 @@ const MAX_GRID_SIZE = 64;
 const DEFAULT_GRID_SIZE = 16;
 
 let gridItems = [];
+let rgbMode = false;
 
 /**************
   DOM OBJECTS
@@ -23,14 +24,18 @@ blackButton.classList.add("active");
 /*****************
   EVENT LISTENERS
 ******************/
+// add .active style to black button
 blackButton.addEventListener('click', () => {
   rgbButton.classList.remove("active");
   blackButton.classList.add("active");
+  rgbMode = false;
 });
 
+// add .active style to rgb button
 rgbButton.addEventListener('click', () => {
   blackButton.classList.remove("active");
   rgbButton.classList.add("active");
+  rgbMode = true;
 });
 
 // reset all grid item bg colours to white
@@ -83,6 +88,14 @@ function createGridItem() {
 
     updateBgColour: function() {
       this.element.style.backgroundColor = `rgb(${this.currentWhitePercentage}%, ${this.currentWhitePercentage}%, ${this.currentWhitePercentage}%)`;
+    },
+
+    updateBgColourRGB: function() {
+      const red = Math.floor(Math.random() * 256);
+      const green = Math.floor(Math.random() * 256);
+      const blue = Math.floor(Math.random() * 256);
+
+      this.element.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
     }
   };
 
@@ -147,6 +160,11 @@ function addGridTileEventListeners() {
   for (let i = 0; i < gridItems.length; i+=1) {
     const gridItem = gridItems[i];
     gridItem.element.addEventListener('mouseover', (e) => {
+      if (rgbMode) {
+        gridItem.updateBgColourRGB();
+        return;
+      }
+
       gridItem.darken();
       gridItem.updateBgColour();
     });
