@@ -45,24 +45,8 @@ h1 {
   align-items: center;
 }
 
-#reset-btn {
-  margin-top: 50px;
-  width: 125px;
-  height: 40px;
-  border: none;
-  font-size: 20px;
-}
-
-#reset-btn:hover {
-  border: 2px solid grey;
-}
-
-#reset-btn:active {
-  border: 2px solid black;
-}
-
 #slider-form {
-  margin-top: 25px;
+  margin-top: 50px;
 
   display: flex;
   flex-direction: column;
@@ -75,6 +59,22 @@ h1 {
 
 output {
   font-size: 14px;
+}
+
+#reset-btn {
+  margin-top: 25px;
+  width: 125px;
+  height: 40px;
+  border: none;
+  font-size: 20px;
+}
+
+#reset-btn:hover {
+  border: 2px solid grey;
+}
+
+#reset-btn:active {
+  border: 2px solid black;
 }
 
 #grid-container {
