@@ -1,13 +1,25 @@
+/***********
+  CONSTANTS
+************/
 const MIN_GRID_SIZE = 1;
 const MAX_GRID_SIZE = 64;
 const DEFAULT_GRID_SIZE = 16;
 
 let gridItems = [];
 
+/**************
+  DOM OBJECTS
+***************/
 const gridContainer = document.querySelector("#grid-container");
 const resetButton = document.querySelector("#reset-btn");
 const gridSlider = document.querySelector("#slider");
 
+// default value for output element under slider
+document.querySelector("#output").textContent = DEFAULT_GRID_SIZE;
+
+/*****************
+  EVENT LISTENERS
+******************/
 resetButton.addEventListener('click', () => {
   gridItems.forEach(item => {
     item.resetBgColour();
@@ -26,8 +38,9 @@ gridSlider.addEventListener('input', () => {
   document.querySelector("output").textContent = gridSlider.value;
 });
 
-createGrid();
-addGridTileEventListeners();
+/************
+  FUNCTIONS
+*************/
 
 /*
   createGridItem()
@@ -122,3 +135,9 @@ function addGridTileEventListeners() {
     });
   }
 }
+
+/*************
+  START CODE
+ *************/
+createGrid();
+addGridTileEventListeners();
