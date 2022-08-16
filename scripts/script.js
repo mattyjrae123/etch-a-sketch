@@ -15,7 +15,7 @@ const resetButton = document.querySelector("#reset-btn");
 const gridSlider = document.querySelector("#slider");
 
 // default value for output element under slider
-document.querySelector("#output").textContent = DEFAULT_GRID_SIZE;
+document.querySelector("#output").textContent = `${DEFAULT_GRID_SIZE} x ${DEFAULT_GRID_SIZE}`;
 
 /*****************
   EVENT LISTENERS
@@ -38,7 +38,7 @@ gridSlider.addEventListener('mouseup', () => {
 
 // update slider label as it's moved
 gridSlider.addEventListener('input', () => {
-  document.querySelector("output").textContent = gridSlider.value;
+  document.querySelector("output").textContent = `${gridSlider.value} x ${gridSlider.value}`;
 });
 
 /************
