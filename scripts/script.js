@@ -134,14 +134,7 @@ function createGrid(gridSize=DEFAULT_GRID_SIZE) {
     gridItems.push(gridItem);
   }
 
-  // generate 'grid-column-template' CSS rule
-  let generatedGridTemplate = "";
-  
-  for (let n = 0; n < gridSize; n+=1) {
-    generatedGridTemplate += " auto";
-  }
-
-  gridContainer.style.gridTemplateColumns = generatedGridTemplate;
+  gridContainer.style.gridTemplateColumns = `repeat(${gridSize}, auto)`;
 }
 
 /*
