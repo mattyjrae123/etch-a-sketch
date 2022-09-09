@@ -59,60 +59,40 @@ gridSlider.setAttribute("value", DEFAULT_GRID_SIZE);
 gridSlider.setAttribute("min", MIN_GRID_SIZE);
 gridSlider.setAttribute("max", MAX_GRID_SIZE);
 
-
-/************
-  MAIN CODE
- ************/
-  createGrid();
-  addGridTileEventListeners();
-
 /************
   FUNCTIONS
 *************/
 
-/*
-  createGridItem()
-
-  Creates and returns a new grid item and its appropriate methods
-  and variables.
-*/
-function createGridItem() {
-  const gridItem = {
-    element: document.createElement('div'),
-    /* 100 = white, 0 = black. Values in between are shades of grey */
-    currentWhitePercentage: 100,
-
-    darken() {
-      if (this.currentWhitePercentage <= 0) {
-        return;
-      }
-      this.currentWhitePercentage -= 10;
-    },
-
-    resetBgColour() {
-      this.currentWhitePercentage = 100;
-    },
-
-    updateBgColour() {
-      this.element.style.backgroundColor = `rgb(${this.currentWhitePercentage}%, ${this.currentWhitePercentage}%, ${this.currentWhitePercentage}%)`;
-    },
-
-    updateBgColourRGB() {
-      const red = Math.floor(Math.random() * 256);
-      const green = Math.floor(Math.random() * 256);
-      const blue = Math.floor(Math.random() * 256);
-
-      this.element.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
-
-      this.resetBgColour();
-    }
-  };
-
-  gridItem.element.classList.add('grid-item');
-  gridItem.updateBgColour();
-
-  return gridItem;
+function gridItem() {
+  this.element = document.createElement('div');
+  this.element.classList.add('grid-item');
+  this.currentWhitePercentage = 100;
 }
+
+gridItem.prototype.darken = function () {
+  if (this.currentWhitePercentage <= 0) {
+    return;
+  }
+  this.currentWhitePercentage -= 10;
+};
+
+gridItem.prototype.resetBgColour = function () {
+  this.currentWhitePercentage = 10;
+};
+
+gridItem.prototype.updateBgColour = function () {
+  this.element.style.backgroundColor = `rgb(${this.currentWhitePercentage}%, ${this.currentWhitePercentage}%, ${this.currentWhitePercentage}%)`;
+};
+
+gridItem.prototype.updateBgColourRGB = function () {
+  const red = Math.floor(Math.random() * 256);
+  const green = Math.floor(Math.random() * 256);
+  const blue = Math.floor(Math.random() * 256);
+
+  this.element.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+
+  this.resetBgColour();
+};
 
 /*
   createGrid()
@@ -121,17 +101,19 @@ function createGridItem() {
   new html elements, adds grid-item class to them and adds them to
   the gridContainer element and gridItems array.
 */
-function createGrid(gridSize=DEFAULT_GRID_SIZE) {
+function createGrid(gridSize = DEFAULT_GRID_SIZE) {
   if (gridSize < MIN_GRID_SIZE || gridSize > MAX_GRID_SIZE) {
     gridSize = DEFAULT_GRID_SIZE;
   }
 
   // create all grid items (gridSize^2)
-  for (let n = 0; n < gridSize*gridSize; n+=1) {
-    const gridItem = createGridItem();
+  for (let n = 0; n < gridSize * gridSize; n += 1) {
+    const newGridItem = new gridItem();
 
-    gridContainer.appendChild(gridItem.element);
-    gridItems.push(gridItem);
+    newGridItem.updateBgColour();
+
+    gridContainer.appendChild(newGridItem.element);
+    gridItems.push(newGridItem);
   }
 
   gridContainer.style.gridTemplateColumns = `repeat(${gridSize}, auto)`;
@@ -159,7 +141,7 @@ function clearGrid() {
   over it.
 */
 function addGridTileEventListeners() {
-  for (let i = 0; i < gridItems.length; i+=1) {
+  for (let i = 0; i < gridItems.length; i += 1) {
     const gridItem = gridItems[i];
     gridItem.element.addEventListener('mouseover', (e) => {
       if (rgbMode) {
@@ -172,3 +154,9 @@ function addGridTileEventListeners() {
     });
   }
 }
+
+/************
+  MAIN CODE
+ ************/
+createGrid();
+addGridTileEventListeners();
