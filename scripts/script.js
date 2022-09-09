@@ -43,8 +43,7 @@ resetButton.addEventListener('click', () => {
 gridSlider.addEventListener('mouseup', () => {
   const newGridSize = gridSlider.value;
   clearGrid();
-  createGrid(newGridSize);
-  addGridTileEventListeners();
+  generateGrid(newGridSize);
 });
 
 // update slider label as it's moved
@@ -63,10 +62,26 @@ gridSlider.setAttribute("max", MAX_GRID_SIZE);
   FUNCTIONS
 *************/
 
+/**
+ * Constructor to create a new gridItem, which has a background colour
+ * that changes with each 'mouseover' event
+ */
 function gridItem() {
+  this.currentWhitePercentage = 100;
+
   this.element = document.createElement('div');
   this.element.classList.add('grid-item');
-  this.currentWhitePercentage = 100;
+
+  this.element.addEventListener('mouseover', (e) => {
+    if (rgbMode) {
+      this.updateBgColourRGB();
+      return;
+    }
+
+    this.darken();
+    this.updateBgColour();
+  });
+
 }
 
 gridItem.prototype.darken = function () {
@@ -77,7 +92,7 @@ gridItem.prototype.darken = function () {
 };
 
 gridItem.prototype.resetBgColour = function () {
-  this.currentWhitePercentage = 10;
+  this.currentWhitePercentage = 100;
 };
 
 gridItem.prototype.updateBgColour = function () {
@@ -94,14 +109,13 @@ gridItem.prototype.updateBgColourRGB = function () {
   this.resetBgColour();
 };
 
-/*
-  createGrid()
-
-  Uses the gridSize global variable to generate gridSize*gridSize
-  new html elements, adds grid-item class to them and adds them to
-  the gridContainer element and gridItems array.
-*/
-function createGrid(gridSize = DEFAULT_GRID_SIZE) {
+/**
+ * Uses gridSize specified as a parameter to generate gridSize*gridSize
+ * gridItems, adds each to gridContainer DOM object and gridItems array,
+ * and generates CSS grid template rule for gridSize*gridSize grid
+ * @param {number} gridSize 
+ */
+function generateGrid(gridSize = DEFAULT_GRID_SIZE) {
   if (gridSize < MIN_GRID_SIZE || gridSize > MAX_GRID_SIZE) {
     gridSize = DEFAULT_GRID_SIZE;
   }
@@ -116,15 +130,13 @@ function createGrid(gridSize = DEFAULT_GRID_SIZE) {
     gridItems.push(newGridItem);
   }
 
-  gridContainer.style.gridTemplateColumns = `repeat(${gridSize}, auto)`;
+  gridContainer.style.gridTemplateColumns = `repeat(${gridSize}, 1fr)`;
+
 }
 
-/*
-  clearGrid()
-
-  Removes all gridItem elements from the grid and clears gridItems
-  array
-*/
+/**
+ * Removes all gridItem elemtns from gridContainer and clears gridItems array
+ */
 function clearGrid() {
   for (const item of gridItems) {
     gridContainer.removeChild(item.element);
@@ -133,30 +145,7 @@ function clearGrid() {
   gridItems = [];
 }
 
-/*
-  addGridTileEventListeners()
-
-  Adds an event listener to each item in the gridItems array which
-  updates the background colour of each item when the mouse is hovered
-  over it.
-*/
-function addGridTileEventListeners() {
-  for (let i = 0; i < gridItems.length; i += 1) {
-    const gridItem = gridItems[i];
-    gridItem.element.addEventListener('mouseover', (e) => {
-      if (rgbMode) {
-        gridItem.updateBgColourRGB();
-        return;
-      }
-
-      gridItem.darken();
-      gridItem.updateBgColour();
-    });
-  }
-}
-
 /************
   MAIN CODE
  ************/
-createGrid();
-addGridTileEventListeners();
+generateGrid();
