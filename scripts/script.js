@@ -67,22 +67,27 @@ gridSlider.setAttribute("max", MAX_GRID_SIZE);
  * that changes with each 'mouseover' event
  */
 function gridItem() {
-  this.currentWhitePercentage = 100;
+  this.currentWhitePercentage = 110;
 
   this.element = document.createElement('div');
   this.element.classList.add('grid-item');
 
   this.element.addEventListener('mouseover', (e) => {
-    if (rgbMode) {
-      this.updateBgColourRGB();
-      return;
-    }
-
-    this.darken();
     this.updateBgColour();
   });
 
+  this.updateBgColour();
 }
+
+gridItem.prototype.updateBgColour = function() {
+  if (rgbMode) {
+    this.updateBgColourRGB();
+    return;
+  }
+
+  this.darken();
+  this.updateBgColourBlack();
+};
 
 gridItem.prototype.darken = function () {
   if (this.currentWhitePercentage <= 0) {
@@ -92,10 +97,10 @@ gridItem.prototype.darken = function () {
 };
 
 gridItem.prototype.resetBgColour = function () {
-  this.currentWhitePercentage = 100;
+  this.currentWhitePercentage = 110;
 };
 
-gridItem.prototype.updateBgColour = function () {
+gridItem.prototype.updateBgColourBlack = function () {
   this.element.style.backgroundColor = `rgb(${this.currentWhitePercentage}%, ${this.currentWhitePercentage}%, ${this.currentWhitePercentage}%)`;
 };
 
@@ -123,8 +128,6 @@ function generateGrid(gridSize = DEFAULT_GRID_SIZE) {
   // create all grid items (gridSize^2)
   for (let n = 0; n < gridSize * gridSize; n += 1) {
     const newGridItem = new gridItem();
-
-    newGridItem.updateBgColour();
 
     gridContainer.appendChild(newGridItem.element);
     gridItems.push(newGridItem);
