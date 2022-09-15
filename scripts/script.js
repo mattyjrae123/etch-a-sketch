@@ -58,62 +58,6 @@ gridSlider.setAttribute("value", DEFAULT_GRID_SIZE);
 gridSlider.setAttribute("min", MIN_GRID_SIZE);
 gridSlider.setAttribute("max", MAX_GRID_SIZE);
 
-/************
-  FUNCTIONS
-*************/
-
-/**
- * Constructor to create a new gridItem, which has a background colour
- * that changes with each 'mouseover' event
- */
-function gridItem() {
-  this.currentWhitePercentage = 110;
-
-  this.element = document.createElement('div');
-  this.element.classList.add('grid-item');
-
-  this.element.addEventListener('mouseover', (e) => {
-    this.updateBgColour(rgbMode);
-  });
-
-  this.updateBgColour(false);
-}
-
-gridItem.prototype.updateBgColour = function(rgb) {
-  if (rgb) {
-    this.updateBgColourRGB();
-    return;
-  }
-
-  this.darken();
-  this.updateBgColourBlack();
-};
-
-gridItem.prototype.darken = function () {
-  if (this.currentWhitePercentage <= 0) {
-    return;
-  }
-  this.currentWhitePercentage -= 10;
-};
-
-gridItem.prototype.resetBgColour = function () {
-  this.currentWhitePercentage = 110;
-};
-
-gridItem.prototype.updateBgColourBlack = function () {
-  this.element.style.backgroundColor = `rgb(${this.currentWhitePercentage}%, ${this.currentWhitePercentage}%, ${this.currentWhitePercentage}%)`;
-};
-
-gridItem.prototype.updateBgColourRGB = function () {
-  const red = Math.floor(Math.random() * 256);
-  const green = Math.floor(Math.random() * 256);
-  const blue = Math.floor(Math.random() * 256);
-
-  this.element.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
-
-  this.resetBgColour();
-};
-
 /**
  * Uses gridSize specified as a parameter to generate gridSize*gridSize
  * gridItems, adds each to gridContainer DOM object and gridItems array,
@@ -127,7 +71,7 @@ function generateGrid(gridSize = DEFAULT_GRID_SIZE) {
 
   // create all grid items (gridSize^2)
   for (let n = 0; n < gridSize * gridSize; n += 1) {
-    const newGridItem = new gridItem();
+    const newGridItem = new GridItem();
 
     gridContainer.appendChild(newGridItem.element);
     gridItems.push(newGridItem);
@@ -146,6 +90,57 @@ function clearGrid() {
   }
 
   gridItems = [];
+}
+
+class GridItem {
+  constructor() {
+    this.currentWhitePercentage = 110;
+
+    this.element = document.createElement('div');
+    this.element.classList.add('grid-item');
+
+    this.element.addEventListener('mouseover', (e) => {
+      this.updateBgColour(rgbMode);
+    });
+
+    this.updateBgColour(false);
+  }
+
+  darken() {
+    if (this.currentWhitePercentage <= 0) {
+      return;
+    }
+    this.currentWhitePercentage -= 10;
+  }
+
+  resetBgColour() {
+    this.currentWhitePercentage = 110;
+  }
+
+  updateBgColour(rgb) {
+    if (rgb) {
+      this.updateBgColourRGB();
+      return;
+    }
+
+    this.darken();
+    this.updateBgColourBlack();
+  }
+
+  updateBgColourBlack() {
+    this.element.style.backgroundColor = `rgb(${this.currentWhitePercentage}%, ${this.currentWhitePercentage}%, ${this.currentWhitePercentage}%)`;
+  }
+
+  updateBgColourRGB() {
+    const red = Math.floor(Math.random() * 256);
+    const green = Math.floor(Math.random() * 256);
+    const blue = Math.floor(Math.random() * 256);
+
+    this.element.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+
+    this.resetBgColour();
+  }
+
 }
 
 /************
