@@ -35,7 +35,7 @@ rgbButton.addEventListener('click', () => {
 resetButton.addEventListener('click', () => {
   gridItems.forEach(item => {
     item.resetBgColour();
-    item.updateBgColour();
+    item.updateBgColour(false);
   });
 });
 
@@ -73,14 +73,14 @@ function gridItem() {
   this.element.classList.add('grid-item');
 
   this.element.addEventListener('mouseover', (e) => {
-    this.updateBgColour();
+    this.updateBgColour(rgbMode);
   });
 
-  this.updateBgColour();
+  this.updateBgColour(false);
 }
 
-gridItem.prototype.updateBgColour = function() {
-  if (rgbMode) {
+gridItem.prototype.updateBgColour = function(rgb) {
+  if (rgb) {
     this.updateBgColourRGB();
     return;
   }
